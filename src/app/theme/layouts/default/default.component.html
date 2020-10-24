@@ -1,0 +1,16 @@
+<div class="dx-overflow-hidden">
+  <app-side-navigation-menu id="sideBar" [ngClass]="menuOpened ? 'side-bar-container': 'side-bar-container side-bar-hidden'">
+    <div class="d-flex justify-content-end" (click)="toggleMenu()">
+      <i class="fas fa-bars menu-button"></i>
+    </div>
+  </app-side-navigation-menu>
+
+  <div class="open-menu-button d-flex align-items-center" *ngIf="!menuOpened"
+       (click)="toggleMenu()">
+    <i class="fas fa-bars"></i>
+  </div>
+
+  <div id="appContent" [ngClass]="menuOpened ? 'app-content' : 'app-content app-content-full'">
+    <router-outlet></router-outlet>
+  </div>
+</div>

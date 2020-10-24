@@ -1,0 +1,28 @@
+@import "./variables.scss";
+
+/**
+  * Container Responsive
+  */
+.sub-container {
+    max-width: 100%;
+}
+
+@media (min-width: 920px) {
+    .sub-container {
+        max-width: 932px;
+    }
+}
+
+/**
+  * Container Responsive
+  */
+.hide-mobile {
+    display: none;
+}
+
+@media (max-width: 767.9px) {
+    .hide-mobile {
+        display: none;
+    }
+}
+
