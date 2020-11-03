@@ -19,8 +19,8 @@ export class SideNavigationMenuComponent implements OnInit {
       icon: '<i class="fas fa-store"></i>'
     },
     {
-      routerLink: '/customer',
-      text: 'Customer',
+      routerLink: '/basic',
+      text: 'Basic Concept',
       icon: ' <i class="fas fa-user-friends"></i>'
     }
   ];

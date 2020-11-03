@@ -18,6 +18,10 @@ const routes: Routes = [
       {
         path: 'home',
         loadChildren: () => import('./modules/projects/projects.module').then(m => m.ProjectsModule),
+      },
+      {
+        path: 'basic',
+        loadChildren: () => import('./modules/basic/basic.module').then(m => m.BasicModule),
       }
     ]
   },

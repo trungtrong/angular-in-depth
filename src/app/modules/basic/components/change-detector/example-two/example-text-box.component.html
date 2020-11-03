@@ -1,0 +1,7 @@
+<dx-text-box
+    [showClearButton]="true"
+    placeholder="Enter full name"
+    [valueChangeEvent]="'keyup'"
+    (onValueChanged)="onNameChanged($event)"
+    [(value)]="name">
+</dx-text-box>
