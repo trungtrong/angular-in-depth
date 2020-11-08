@@ -5,6 +5,7 @@ import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, Do
 @Component({
     selector: 'app-basic-example-two-child',
     templateUrl: 'example-two-child.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class ExampleTwoChildComponent implements OnInit, DoCheck, AfterViewInit {

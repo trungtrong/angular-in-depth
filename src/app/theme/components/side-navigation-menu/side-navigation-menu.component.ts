@@ -1,10 +1,5 @@
-import {
-  Component, Output, Input, EventEmitter,
-  ViewChild, ElementRef, AfterViewInit, OnDestroy, OnInit
-} from '@angular/core';
-import {DxTreeViewComponent} from 'devextreme-angular/ui/tree-view';
-import * as events from 'devextreme/events';
-
+import {Component,  OnInit} from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-navigation-menu',
@@ -14,20 +9,35 @@ import * as events from 'devextreme/events';
 export class SideNavigationMenuComponent implements OnInit {
   pages = [
     {
-      routerLink: '/home',
-      text: 'Home',
-      icon: '<i class="fas fa-store"></i>'
-    },
-    {
-      routerLink: '/basic',
-      text: 'Basic Concept',
-      icon: ' <i class="fas fa-user-friends"></i>'
+        id: '1',
+        routerLink: '/basic',
+        text: 'Basic Concept',
+        icon: ' <i class="fas fa-user-friends"></i>',
+        expanded: true,
+        items: [
+            {
+                id: '1_1',
+                routerLink: '/basic/change-detector',
+                text: 'Change Detection',
+                icon: ' <i class="fas fa-user-friends"></i>',
+            },
+            {
+                id: '1_2',
+                routerLink: '/basic/animation-routing',
+                text: 'Animation Routing',
+                icon: ' <i class="fas fa-user-friends"></i>',
+            }
+        ]
     }
   ];
 
-  constructor(private elementRef: ElementRef) {
-  }
+    constructor(private router: Router) {
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
+
+    goToPage(e: any) {
+        this.router.navigate([`${e.itemData.routerLink}`]).then();
+    }
 }

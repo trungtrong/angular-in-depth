@@ -12,6 +12,9 @@ import {
     ExampleTextBoxComponent,
     ExampleTwoChildComponent,
 } from '@app/modules/basic/components';
+import { TodoAppComponent } from './components/change-detector/example-three/todo-app.component';
+import { TodoListComponent } from './components/change-detector/example-three/todo-list.component';
+import { TodoItemComponent } from './components/change-detector/example-three/todo-item.component';
 
 const COMPONENTS = [
     BasicComponent,
@@ -22,6 +25,10 @@ const COMPONENTS = [
     //
     ExampleTextBoxComponent,
     ExampleTwoChildComponent,
+    //
+    TodoAppComponent,
+    TodoListComponent,
+    TodoItemComponent,
 ];
 
 const PROVIDERS = [

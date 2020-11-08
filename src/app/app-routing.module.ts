@@ -12,12 +12,8 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '/home',
+        redirectTo: '/basic',
         pathMatch: 'full'
-      },
-      {
-        path: 'home',
-        loadChildren: () => import('./modules/projects/projects.module').then(m => m.ProjectsModule),
       },
       {
         path: 'basic',
