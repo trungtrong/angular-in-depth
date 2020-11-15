@@ -1,4 +1,4 @@
-import {AfterViewChecked, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {AfterViewChecked, Component, DoCheck, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { Todo } from './todo.model';
 
 
@@ -8,9 +8,9 @@ import { Todo } from './todo.model';
         <span class="todo noselect" (click)="onToggle()">
             {{todo.owner.firstName}} - {{todo.description}} - completed: {{todo.completed}}
         </span>
-    `
+    `,
 })
-export class TodoItemComponent implements AfterViewChecked {
+export class TodoItemComponent implements AfterViewChecked, DoCheck {
     @Input() todo: Todo;
 
     @Output() toggle = new EventEmitter<object>();
@@ -20,6 +20,10 @@ export class TodoItemComponent implements AfterViewChecked {
     }
 
     ngAfterViewChecked() {
+        console.log('todo-item-after view checked');
+    }
 
+    ngDoCheck() {
+       console.log('a');
     }
 }

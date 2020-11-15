@@ -4,6 +4,12 @@ import {RouterModule} from '@angular/router';
 import {ThemeModule} from '@app/theme';
 import {SharedModule} from '@app/shared/shared.module';
 //
+import { SvgIconsRegistry } from 'app/theme/services/svg-icons.service';
+import {
+    svgIconFacebook,
+    svgIconInstagram
+} from 'assets/images/icons/lib/svg-icons.model';
+//
 import { BasicComponent } from './basic.component';
 import {
     ChangeDetectorComponent,
@@ -11,10 +17,12 @@ import {
     BComponent,
     ExampleTextBoxComponent,
     ExampleTwoChildComponent,
+    TodoAppComponent,
+    TodoListComponent,
+    TodoItemComponent,
+    SvgLibraryComponent,
+    SvgExampleOneComponent,
 } from '@app/modules/basic/components';
-import { TodoAppComponent } from './components/change-detector/example-three/todo-app.component';
-import { TodoListComponent } from './components/change-detector/example-three/todo-list.component';
-import { TodoItemComponent } from './components/change-detector/example-three/todo-item.component';
 
 const COMPONENTS = [
     BasicComponent,
@@ -29,6 +37,9 @@ const COMPONENTS = [
     TodoAppComponent,
     TodoListComponent,
     TodoItemComponent,
+    //
+    SvgLibraryComponent,
+    SvgExampleOneComponent
 ];
 
 const PROVIDERS = [
@@ -52,6 +63,10 @@ const PROVIDERS = [
                     path: 'change-detector',
                     component: ChangeDetectorComponent,
                 },
+                {
+                    path: 'svg-icon-library',
+                    component: SvgLibraryComponent,
+                },
             ]
         },
 
@@ -65,4 +80,10 @@ const PROVIDERS = [
   ]
 })
 export class BasicModule {
+    constructor(private svgIconRegistry: SvgIconsRegistry) {
+        svgIconRegistry.registerIcons([
+            svgIconFacebook,
+            svgIconInstagram
+        ])
+    }
 }

@@ -42,7 +42,7 @@ export class LoginFormComponent {
       //
       this.authService.setCurrentUser(data);
       //
-      this.router.navigate(['/home']);
+      this.router.navigate(['/basic']);
     }, () => {
       this.isSubmitting = false;
     });

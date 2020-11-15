@@ -23,8 +23,8 @@ export class SideNavigationMenuComponent implements OnInit {
             },
             {
                 id: '1_2',
-                routerLink: '/basic/animation-routing',
-                text: 'Animation Routing',
+                routerLink: '/basic/svg-icon-library',
+                text: 'SVG Icon Library',
                 icon: ' <i class="fas fa-user-friends"></i>',
             }
         ]

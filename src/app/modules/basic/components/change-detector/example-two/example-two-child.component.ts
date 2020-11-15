@@ -13,7 +13,6 @@ export class ExampleTwoChildComponent implements OnInit, DoCheck, AfterViewInit 
     nameLength: number = 0;
 
     constructor(public cd: ChangeDetectorRef) {
-        this.cd.detach();
     }
 
     ngOnInit() {

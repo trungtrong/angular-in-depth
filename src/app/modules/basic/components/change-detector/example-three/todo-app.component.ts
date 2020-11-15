@@ -1,4 +1,4 @@
-import {Component,Input, ChangeDetectionStrategy, Output, EventEmitter, AfterViewChecked} from '@angular/core';
+import {Component,Input, ChangeDetectionStrategy, Output, EventEmitter, AfterViewChecked, DoCheck} from '@angular/core';
 import {Todo} from './todo.model';
 import {Owner} from './owner.model';
 
@@ -20,7 +20,7 @@ import {Owner} from './owner.model';
         <button (click)="addTodo()">Add Todo to List</button>
     `
 })
-export class TodoAppComponent implements AfterViewChecked {
+export class TodoAppComponent implements AfterViewChecked, DoCheck {
     todos: Todo[] = [
         new Todo({
            id: 1,
@@ -39,7 +39,14 @@ export class TodoAppComponent implements AfterViewChecked {
             description: 'TODO 3',
             completed: false,
             owner: new Owner()
-         }),
+            }),
+
+        new Todo({
+        id: 1,
+        description: 'TODO 3',
+        completed: false,
+        owner: new Owner()
+        }),
     ];;
 
     message: string;
@@ -53,8 +60,23 @@ export class TodoAppComponent implements AfterViewChecked {
     }
 
     toggleFirst() {
+        // Ex1:
         // this.todos[0].completed = !this.todos[0].completed;
-        this.todos[0].owner.lastName = 'hello';
+
+        // Ex2: lastName is shown on template => when lastName is changed
+        // No change detection run
+        // this.todos[0].owner.lastName = 'hello';
+
+        // Ex3:
+        // when todo-list use OnPush()
+        // =>if don't update reference for <todos> variable so todo-item don't run ngDoCheck anymore
+        this.todos[0] = new Todo({
+            id: 1,
+            description: 'TODO 1',
+            completed: true,
+            owner: new Owner()
+        })
+        this.todos = [...this.todos];
     }
 
     addTodo() {
@@ -75,5 +97,9 @@ export class TodoAppComponent implements AfterViewChecked {
 
     ngAfterViewChecked() {
 
+    }
+
+    ngDoCheck() {
+        console.log('todo-app');
     }
 }

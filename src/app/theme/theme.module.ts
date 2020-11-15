@@ -20,6 +20,7 @@ import {
 import {DefaultLayoutComponent, SingleCardLayoutComponent} from './layouts';
 import {ErrorComponent, FooterComponent, HeaderComponent, SideNavigationMenuComponent, UserPanelComponent} from './components';
 import {AutoFocusInputDirective} from './directives';
+import { SvgIconComponent } from './components/svg-icons/svg-icons.component';
 
 //
 const DEVEXTREME_MODULES = [
@@ -51,7 +52,8 @@ const COMPONENTS = [
   ErrorComponent,
   //
   SingleCardLayoutComponent,
-  DefaultLayoutComponent
+  DefaultLayoutComponent,
+  SvgIconComponent
 ];
 
 //
@@ -60,6 +62,10 @@ const DIRECTIVES = [
 ];
 //
 const PIPES = [];
+
+const PROVIDERS = [
+
+];
 
 @NgModule({
   imports: [
@@ -78,6 +84,9 @@ const PIPES = [];
     ...PIPES,
     ...COMPONENTS
   ],
+  providers: [
+
+  ]
 
 })
 export class ThemeModule {

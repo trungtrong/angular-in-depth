@@ -1,11 +1,11 @@
-import {Component,Input, ChangeDetectionStrategy, Output, EventEmitter, AfterViewChecked, OnChanges, AfterViewInit} from '@angular/core';
+import {Component,Input, ChangeDetectionStrategy, Output, EventEmitter, AfterViewChecked, OnChanges, AfterViewInit, DoCheck} from '@angular/core';
 //
 import {Todo} from './todo.model';
 
 @Component({
     selector: 'app-todo-list',
     // uncomment to switch to on-push mode
-    // changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     template: `
         <ul>
             <li *ngFor="let item of todos;">
@@ -18,7 +18,7 @@ import {Todo} from './todo.model';
     `
 })
 
-export class TodoListComponent implements AfterViewChecked, OnChanges, AfterViewInit {
+export class TodoListComponent implements AfterViewChecked, AfterViewInit, DoCheck {
     @Input() todos: Todo[];
 
     @Input() callback: Function;
@@ -51,7 +51,11 @@ export class TodoListComponent implements AfterViewChecked, OnChanges, AfterView
 
     }
 
-    ngOnChanges() {
+    // ngOnChanges() {
 
+    // }
+
+    ngDoCheck() {
+        console.log('todo-list');
     }
 }
