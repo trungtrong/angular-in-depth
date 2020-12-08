@@ -10,3 +10,5 @@ export * from './change-detector/example-three/todo-item.component';
 //
 export * from './svg-library/svg-library.component';
 export * from './svg-library/svg-example-one/svg-example-one.component';
+//
+export * from './routing/routing.component';

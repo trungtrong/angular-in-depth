@@ -20,10 +20,10 @@ export class TodoItemComponent implements AfterViewChecked, DoCheck {
     }
 
     ngAfterViewChecked() {
-        console.log('todo-item-after view checked');
+        // console.log('todo-item-after view checked');
     }
 
     ngDoCheck() {
-       console.log('a');
+    //    console.log('a');
     }
 }

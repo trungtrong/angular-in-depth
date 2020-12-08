@@ -96,10 +96,10 @@ export class TodoAppComponent implements AfterViewChecked, DoCheck {
     }
 
     ngAfterViewChecked() {
-
+        // console.log('todo-app');
     }
 
     ngDoCheck() {
-        console.log('todo-app');
+        // console.log('todo-app');
     }
 }

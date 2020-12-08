@@ -32,14 +32,16 @@
 }
 
 .app-content {
-  display: flex;
-  min-width: 992px;
-  flex-direction: column;
-  position: fixed;
-  left: 240px;
-  top: 0;
-  right: 0;
-  transition: left ease-in-out 250ms;
+    display: flex;
+    min-width: 992px;
+    flex-direction: column;
+    position: fixed;
+    left: 240px;
+    top: 0;
+    right: 0;
+    transition: left ease-in-out 250ms;
+    overflow: auto;
+    height: 100%;
 }
 
 .app-content-full {

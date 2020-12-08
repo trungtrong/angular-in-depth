@@ -12,34 +12,16 @@ import {
 //
 import { BasicComponent } from './basic.component';
 import {
-    ChangeDetectorComponent,
-    AComponent,
-    BComponent,
-    ExampleTextBoxComponent,
-    ExampleTwoChildComponent,
-    TodoAppComponent,
-    TodoListComponent,
-    TodoItemComponent,
     SvgLibraryComponent,
     SvgExampleOneComponent,
+    BasicRoutingComponent,
 } from '@app/modules/basic/components';
 
 const COMPONENTS = [
     BasicComponent,
-    ChangeDetectorComponent,
-    //
-    AComponent,
-    BComponent,
-    //
-    ExampleTextBoxComponent,
-    ExampleTwoChildComponent,
-    //
-    TodoAppComponent,
-    TodoListComponent,
-    TodoItemComponent,
     //
     SvgLibraryComponent,
-    SvgExampleOneComponent
+    SvgExampleOneComponent,
 ];
 
 const PROVIDERS = [
@@ -61,12 +43,17 @@ const PROVIDERS = [
                 },
                 {
                     path: 'change-detector',
-                    component: ChangeDetectorComponent,
+                    loadChildren: () => import('./components/change-detector/change-detector.module').then(m => m.ChangeDetectorModule)
                 },
                 {
                     path: 'svg-icon-library',
                     component: SvgLibraryComponent,
                 },
+                {
+                    path: 'routing',
+                    loadChildren: () => import('./components/routing/routing.module').then(m => m.RoutingModule)
+                },
+
             ]
         },
 

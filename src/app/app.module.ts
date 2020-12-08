@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { ACCESS_TOKEN_KEY, AUTH_SCHEME } from './shared/constants';
 import { RefreshTokenInterceptor } from './services/shared/refresh-token.interceptor';
+import { RouterModule } from '@angular/router';
 
 // Step 1: set HTTP INTERCEPTOR
 export function accessTokenGetter() {

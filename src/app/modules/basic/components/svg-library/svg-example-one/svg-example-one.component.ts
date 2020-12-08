@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewChecked, Component, OnInit} from '@angular/core';
 
 @Component({
     selector: 'app-svg-example-one',
     templateUrl: './svg-example-one.component.html',
 })
-export class SvgExampleOneComponent implements OnInit {
+export class SvgExampleOneComponent implements OnInit, AfterViewChecked {
 
 
     constructor() {
@@ -13,5 +13,9 @@ export class SvgExampleOneComponent implements OnInit {
 
     ngOnInit() {
 
+    }
+
+    ngAfterViewChecked() {
+        console.log('sss');
     }
 }

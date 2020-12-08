@@ -29,7 +29,11 @@ const routes: Routes = [
 ];
 
 const config: ExtraOptions = {
-  useHash: false
+    useHash: false,
+    // enableTracing: true,
+    // onSameUrlNavigation: 'reload',
+    // anchorScrolling: 'enabled'
+
 };
 
 @NgModule({
