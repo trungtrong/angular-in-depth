@@ -51,7 +51,10 @@ const PROVIDERS = [
                 },
                 {
                     path: 'routing',
-                    loadChildren: () => import('./components/routing/routing.module').then(m => m.RoutingModule)
+                    loadChildren: () => import('./components/routing/routing.module').then(m => m.RoutingModule),
+                    // data: {
+                    //     preload: false
+                    // }
                 },
 
             ]

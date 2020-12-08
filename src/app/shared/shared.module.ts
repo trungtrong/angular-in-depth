@@ -1,4 +1,6 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
+import { QuicklinkModule } from 'ngx-quicklink';
+//
 import { ThemeModule } from './../theme';
 import { AuthenticationService, LoggedUserService } from './../services/auth';
 import { AuthGuard } from './auth.guard';
@@ -17,11 +19,15 @@ const COMPONENTS = [
 ];
 
 @NgModule({
-  imports: [
-    ThemeModule,
-  ],
-  exports: [...COMPONENTS],
-  declarations: [...COMPONENTS],
+    imports: [
+        ThemeModule,
+        QuicklinkModule
+    ],
+    exports: [
+        QuicklinkModule,
+        ...COMPONENTS
+    ],
+    declarations: [...COMPONENTS],
 })
 /**
  * https://angular.io/guide/migration-module-with-providers

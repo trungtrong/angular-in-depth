@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, ExtraOptions } from '@angular/router';
+import { Routes, RouterModule, ExtraOptions, PreloadAllModules } from '@angular/router';
 import { DefaultLayoutComponent, ErrorComponent } from './theme';
 import { AuthGuard } from './shared/auth.guard';
+import { QuicklinkStrategy } from 'ngx-quicklink';
 
 
 const routes: Routes = [
@@ -10,15 +11,22 @@ const routes: Routes = [
     component: DefaultLayoutComponent,
     canActivate: [AuthGuard],
     children: [
-      {
-        path: '',
-        redirectTo: '/basic',
-        pathMatch: 'full'
-      },
-      {
-        path: 'basic',
-        loadChildren: () => import('./modules/basic/basic.module').then(m => m.BasicModule),
-      }
+        {
+            path: '',
+            redirectTo: '/basic',
+            pathMatch: 'full'
+        },
+        {
+            path: 'basic',
+            loadChildren: () => import('./modules/basic/basic.module').then(m => m.BasicModule),
+        },
+        {
+            path: 'main',
+            loadChildren: () => import('./modules/main/main.module').then(m => m.MainModule),
+            data: {
+                preload: true
+            }
+        }
     ]
   },
   {
@@ -32,8 +40,8 @@ const config: ExtraOptions = {
     useHash: false,
     // enableTracing: true,
     // onSameUrlNavigation: 'reload',
-    // anchorScrolling: 'enabled'
-
+    // anchorScrolling: 'enabled',
+    // preloadingStrategy: QuicklinkStrategy
 };
 
 @NgModule({
