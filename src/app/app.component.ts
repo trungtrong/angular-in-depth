@@ -30,6 +30,6 @@ export class AppComponent implements AfterViewChecked {
     }
 
     ngAfterViewChecked() {
-        // console.log('app-root');
+        console.log('app-root');
     }
 }

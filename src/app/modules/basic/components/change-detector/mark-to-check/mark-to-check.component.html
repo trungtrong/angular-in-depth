@@ -1,0 +1,27 @@
+<table class="user">
+    <tr>
+        <td>User Name:</td>
+        <td>{{ user.username }}</td>
+    </tr>
+
+    <tr>
+        <td>First Name:</td>
+        <td>{{ user.firstName }}</td>
+    </tr>
+
+    <tr>
+        <td>Last Name:</td>
+        <td>{{ user.lastName }}</td>
+    </tr>
+</table>
+
+<button (click)="updateName()">
+    <span>Change Name</span>
+</button>
+
+<hr>
+<h3>Mark to Check Child One: User Input</h3>
+
+<app-mark-to-check-child-one [user]="user">
+</app-mark-to-check-child-one>
+

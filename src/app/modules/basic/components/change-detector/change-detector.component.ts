@@ -25,6 +25,7 @@ export class ChangeDetectorComponent implements OnInit, AfterViewChecked {
 
     triggerParent(e) {
         this.cdr.detectChanges();
+        // this.cdr.markForCheck();
     }
 
     // ngDoCheck() {

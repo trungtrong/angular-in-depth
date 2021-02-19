@@ -3,15 +3,14 @@
 @import "./variables.scss";
 @import "./utilities.scss";
 @import "./global.scss";
-
-:root {
-    font-family: Roboto !important;
-}
+@import "./mixins/util.scss";
+@import "./mixins/flex.scss";
 
 html, body {
     margin: 0;
     min-height: 100%;
     height: 100%;
+    font-family: 'Roboto', sans-serif !important;
 }
 
 *, :after, :before {

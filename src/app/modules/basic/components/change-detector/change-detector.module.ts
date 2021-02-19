@@ -14,6 +14,8 @@ import {
     TodoListComponent,
     TodoItemComponent,
 } from '@app/modules/basic/components';
+import {MarkToCheckChildOneComponent} from '@app/modules/basic/components/change-detector/mark-to-check/mark-to-check-child-one/mark-to-check-child-one.component';
+import {MarkToCheckComponent} from '@app/modules/basic/components/change-detector/mark-to-check/mark-to-check.component';
 
 
 const COMPONENTS = [
@@ -27,6 +29,9 @@ const COMPONENTS = [
     TodoAppComponent,
     TodoListComponent,
     TodoItemComponent,
+    //
+    MarkToCheckChildOneComponent,
+    MarkToCheckComponent
 ];
 
 const PROVIDERS = [

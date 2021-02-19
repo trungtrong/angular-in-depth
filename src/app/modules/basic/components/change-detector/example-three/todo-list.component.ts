@@ -7,6 +7,7 @@ import {Todo} from './todo.model';
     // uncomment to switch to on-push mode
     changeDetection: ChangeDetectionStrategy.OnPush,
     template: `
+        <h3>TODO List</h3>
         <ul>
             <li *ngFor="let item of todos;">
                 <app-todo-item [todo]="item"

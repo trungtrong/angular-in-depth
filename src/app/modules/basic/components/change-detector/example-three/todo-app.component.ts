@@ -7,6 +7,7 @@ import {Owner} from './owner.model';
 @Component({
     selector: 'app-todo-app',
     template: `
+        <h3>TODO APP</h3>
         <div>
             <app-todo-list [todos]="todos"
                            (addTodo)="onAdd()"
@@ -96,10 +97,10 @@ export class TodoAppComponent implements AfterViewChecked, DoCheck {
     }
 
     ngAfterViewChecked() {
-        // console.log('todo-app');
+        console.log('todo-app');
     }
 
     ngDoCheck() {
-        // console.log('todo-app');
+        console.log('todo-app');
     }
 }
