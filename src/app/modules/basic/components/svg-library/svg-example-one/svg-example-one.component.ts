@@ -16,6 +16,6 @@ export class SvgExampleOneComponent implements OnInit, AfterViewChecked {
     }
 
     ngAfterViewChecked() {
-        console.log('sss');
+        //console.log('sss');
     }
 }

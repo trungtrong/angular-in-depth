@@ -24,6 +24,6 @@ export class SvgLibraryComponent implements OnInit, AfterViewChecked {
     }
 
     ngAfterViewChecked() {
-        console.log('svg-icon');
+       // console.log('svg-icon');
     }
 }

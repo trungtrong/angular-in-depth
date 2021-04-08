@@ -30,7 +30,10 @@ const PROVIDERS = [
                 },
                 {
                     path: 'main-example',
-                    loadChildren: () => import('./main-example/main-example.module').then(m => m.MainExampleModule)
+                    loadChildren: () => import('./main-example/main-example.module').then(m => m.MainExampleModule),
+                    data: {
+                        preload: true
+                    }
                 },
             ]
         },

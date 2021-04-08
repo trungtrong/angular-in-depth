@@ -1,10 +1,12 @@
 import {AfterViewChecked, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {slideInAnimation} from '../../utilities/app.animation';
 
 @Component({
     selector: 'app-basic',
     templateUrl: 'basic.component.html',
     styleUrls: ['./basic.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    animations: [slideInAnimation]
 })
 
 export class BasicComponent implements OnInit, AfterViewChecked {

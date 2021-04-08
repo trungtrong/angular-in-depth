@@ -26,8 +26,8 @@ export class MarkToCheckComponent implements OnInit, AfterViewChecked {
     }
 
     ngAfterViewChecked() {
-        console.log('MarkToCheckComponent View Checked');
-        this.cdr.detectChanges();
+        //console.log('MarkToCheckComponent View Checked');
+        //this.cdr.detectChanges();
     }
 
     updateName() {

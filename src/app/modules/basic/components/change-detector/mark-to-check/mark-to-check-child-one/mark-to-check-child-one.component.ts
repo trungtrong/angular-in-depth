@@ -18,6 +18,6 @@ export class MarkToCheckChildOneComponent implements OnInit, AfterViewChecked {
     }
 
     ngAfterViewChecked() {
-        console.log('MarkToCheckChildOneComponent View Checked');
+       // console.log('MarkToCheckChildOneComponent View Checked');
     }
 }

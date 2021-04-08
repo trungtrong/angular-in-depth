@@ -1,4 +1,4 @@
-import {AfterViewInit, ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {AfterViewChecked, AfterViewInit, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 
 @Component({
     selector: 'app-basic-a-component',
@@ -9,7 +9,7 @@ import {AfterViewInit, ChangeDetectorRef, Component, OnInit} from '@angular/core
     `,
 })
 
-export class AComponent implements OnInit, AfterViewInit {
+export class AComponent implements OnInit, AfterViewInit, AfterViewChecked {
     name: string = 'I am A Component';
     text: string = 'A message for the child component';
 
@@ -21,7 +21,11 @@ export class AComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit() {
-        this.cd.detectChanges();
+        // this.cd.detectChanges();
+    }
+
+    ngAfterViewChecked() {
+        // console.log('A Component - AfterViewChecked');
     }
 }
 

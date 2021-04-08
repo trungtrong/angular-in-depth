@@ -5,6 +5,7 @@ import {AComponent} from '@app/modules/basic/components/change-detector/example-
 @Component({
     selector: 'app-basic-b-component',
     template: `
+        <span>{{text}}</span>
     `,
 })
 
@@ -20,6 +21,8 @@ export class BComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit() {
-        this.aParent.name = 'updated name';
+        // this.aParent.name = 'updated name';
     }
+
+
 }

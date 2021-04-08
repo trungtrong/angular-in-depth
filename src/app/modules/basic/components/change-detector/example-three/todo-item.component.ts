@@ -25,6 +25,6 @@ export class TodoItemComponent implements AfterViewChecked, DoCheck {
     }
 
     ngDoCheck() {
-       console.log('a');
+       //console.log('a');
     }
 }

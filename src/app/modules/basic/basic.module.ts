@@ -34,7 +34,7 @@ const PROVIDERS = [
     RouterModule.forChild([
         {
             path: '',
-            component: BasicComponent,
+            component: BasicComponent, // layout with router-outlet
             children: [
                 {
                     path: '',
@@ -52,11 +52,15 @@ const PROVIDERS = [
                 {
                     path: 'routing',
                     loadChildren: () => import('./components/routing/routing.module').then(m => m.RoutingModule),
-                    // data: {
-                    //     preload: false
-                    // }
                 },
-
+                {
+                    path: 'pipes',
+                    loadChildren: () => import('./components/pipe-example/pure-impure-pipes.module').then(m => m.PipeExampleModule),
+                },
+                {
+                    path: 'observables',
+                    loadChildren: () => import('./components/observable-concept/observable-concept.module').then(m => m.ObservableConceptModule),
+                },
             ]
         },
 

@@ -33,7 +33,7 @@ export class ExampleTwoChildComponent implements OnInit, DoCheck, AfterViewInit 
 
     ngAfterViewInit() {
         // 2 - detectChanges();
-        this.cd.detectChanges();
+        // this.cd.detectChanges();
     }
 
 

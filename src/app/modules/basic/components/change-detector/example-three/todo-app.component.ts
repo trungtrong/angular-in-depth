@@ -48,7 +48,7 @@ export class TodoAppComponent implements AfterViewChecked, DoCheck {
         completed: false,
         owner: new Owner()
         }),
-    ];;
+    ];
 
     message: string;
     callback: Function = (message) => {
@@ -97,10 +97,10 @@ export class TodoAppComponent implements AfterViewChecked, DoCheck {
     }
 
     ngAfterViewChecked() {
-        console.log('todo-app');
+        // console.log('todo-app');
     }
 
     ngDoCheck() {
-        console.log('todo-app');
+        // console.log('todo-app');
     }
 }

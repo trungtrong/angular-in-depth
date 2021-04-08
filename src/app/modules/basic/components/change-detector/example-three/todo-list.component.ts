@@ -42,8 +42,8 @@ export class TodoListComponent implements AfterViewChecked, AfterViewInit, DoChe
 
     ngAfterViewChecked() {
         if (this.callback && this.clicked) {
-            console.log('changing status ...');
-            this.callback(Math.random());
+            // console.log('changing status ...');
+            // this.callback(Math.random());
         }
 
     }
@@ -57,6 +57,6 @@ export class TodoListComponent implements AfterViewChecked, AfterViewInit, DoChe
     // }
 
     ngDoCheck() {
-        console.log('todo-list');
+        //console.log('todo-list');
     }
 }
