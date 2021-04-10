@@ -1,22 +1,26 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
-import {JwtInterceptor, JwtModule} from '@auth0/angular-jwt';
+import {RouterModule} from '@angular/router';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {StoreModule} from '@ngrx/store';
 //
 import {ThemeModule} from './theme';
 import {AppRoutingModule} from './app-routing.module';
-import {AppComponent} from './app.component';
 import {SharedModule} from './shared/shared.module';
-import {ACCESS_TOKEN_KEY, AUTH_SCHEME} from './shared/constants';
 import {RefreshTokenInterceptor} from './services/shared/refresh-token.interceptor';
-import {RouterModule} from '@angular/router';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {JwtInterceptor, JwtModule} from '@auth0/angular-jwt';
+import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
+//
+import {ACCESS_TOKEN_KEY, AUTH_SCHEME} from './shared/constants';
+import {ProductData} from '@app/modules/basic/components/ngRx-demo-one/products/services/product.data';
+//
+import {AppComponent} from './app.component';
 
 // Step 1: set HTTP INTERCEPTOR
 export function accessTokenGetter() {
-    return localStorage.getItem(ACCESS_TOKEN_KEY) ? decodeURIComponent(
-        atob(localStorage.getItem(ACCESS_TOKEN_KEY))
-    ) : null;
+    return localStorage.getItem(ACCESS_TOKEN_KEY)
+        ? decodeURIComponent(atob(localStorage.getItem(ACCESS_TOKEN_KEY))) : null;
 }
 
 @NgModule({
@@ -26,6 +30,7 @@ export function accessTokenGetter() {
     imports: [
         BrowserModule,
         HttpClientModule,
+        HttpClientInMemoryWebApiModule.forRoot(ProductData),
         BrowserAnimationsModule,
         //
         JwtModule.forRoot({
@@ -41,6 +46,9 @@ export function accessTokenGetter() {
         AppRoutingModule,
         ThemeModule,
         SharedModule.forRoot(),
+        // https://ngrx.io/guide/store/install
+        // ng add @ngrx/store@latest
+        StoreModule.forRoot({}),
     ],
     providers: [
         JwtInterceptor,

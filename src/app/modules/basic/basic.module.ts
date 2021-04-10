@@ -61,6 +61,10 @@ const PROVIDERS = [
                     path: 'observables',
                     loadChildren: () => import('./components/observable-concept/observable-concept.module').then(m => m.ObservableConceptModule),
                 },
+                {
+                    path: 'ngRx-demo-one',
+                    loadChildren: () => import('./components/ngRx-demo-one/ngRx-demo-one.module').then(m => m.NgRxDemoOneModule),
+                },
             ]
         },
 

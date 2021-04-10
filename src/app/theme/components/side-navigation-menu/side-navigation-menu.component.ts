@@ -40,10 +40,16 @@ export class SideNavigationMenuComponent implements OnInit {
         },
         {
             id: '1_6',
+            routerLink: '/basic/ngRx-demo-one',
+            text: 'NgRx Demo One',
+            icon: ' <i class="fas fa-user-friends"></i>',
+        },
+        {
+            id: '1_7',
             routerLink: '/main',
             text: 'Main Module',
             icon: ' <i class="fas fa-user-friends"></i>',
-        }
+        },
     ];
 
     constructor(private router: Router) {

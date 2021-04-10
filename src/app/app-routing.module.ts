@@ -4,6 +4,7 @@ import {QuicklinkStrategy} from 'ngx-quicklink';
 //
 import {DefaultLayoutComponent, ErrorComponent} from './theme';
 import {AuthGuard} from './shared/auth.guard';
+import {CustomPreloadStrategyService} from './theme/services/custom-preload-strategy.service';
 
 const routes: Routes = [
     {
@@ -41,7 +42,7 @@ const config: ExtraOptions = {
     // enableTracing: true, // use to tracking/debugging router cycle, console.log on inspect
     // onSameUrlNavigation: 'reload',
     // anchorScrolling: 'enabled',
-    preloadingStrategy: QuicklinkStrategy
+    preloadingStrategy: CustomPreloadStrategyService
 };
 
 @NgModule({
