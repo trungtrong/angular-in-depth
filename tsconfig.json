@@ -60,6 +60,9 @@
       ],
       "@app/data/*": [
         "app/data/*"
+      ],
+      "@app/state/*": [
+        "app/state/*"
       ]
     }
   },

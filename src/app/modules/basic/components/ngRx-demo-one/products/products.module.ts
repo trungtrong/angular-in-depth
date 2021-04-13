@@ -11,6 +11,8 @@ import {
 } from '@app/modules/basic/components/ngRx-demo-one/products';
 import {StoreModule} from '@ngrx/store';
 import {productReducer} from '@app/modules/basic/components/ngRx-demo-one/products/state/product.reducer';
+import {EffectsModule} from '@ngrx/effects';
+import {ProductEffects} from '@app/modules/basic/components/ngRx-demo-one/products/state/product.effects';
 //
 const productRoutes: Routes = [
     {
@@ -31,7 +33,8 @@ const COMPONENTS = [
         SharedModule,
         RouterModule.forChild(productRoutes),
         // Config Store for FeatureModule
-        StoreModule.forFeature('products', productReducer)
+        StoreModule.forFeature('products', productReducer),
+        EffectsModule.forFeature([ProductEffects]), // for apply following lazy load Feature Module
     ],
     declarations: [
         ...COMPONENTS

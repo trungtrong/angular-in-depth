@@ -11,7 +11,6 @@ import {IProduct} from '@app/modules/basic/components/ngRx-demo-one/products/mod
 })
 export class ProductService {
     private productsUrl = 'api/products';
-    private products: IProduct[];
 
     private selectedProductSource = new BehaviorSubject<IProduct | null>(null);
     selectedProductChanges$ = this.selectedProductSource.asObservable();
@@ -23,13 +22,20 @@ export class ProductService {
     }
 
     getProducts(): Observable<IProduct[]> {
-        if (this.products) {
+        /*if (this.products) {
             return of(this.products);
         }
+        //
         return this.http.get<IProduct[]>(this.productsUrl)
             .pipe(
                 tap(data => console.log(JSON.stringify(data))),
                 tap(data => this.products = data),
+                catchError(this.handleError)
+            ); */
+        //
+        return this.http.get<IProduct[]>(this.productsUrl)
+            .pipe(
+                tap(data => console.log(JSON.stringify(data))),
                 catchError(this.handleError)
             );
     }
@@ -49,6 +55,8 @@ export class ProductService {
         const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         // Product Id must be null for the Web API to assign an Id
         const newProduct = { ...product, id: null };
+
+        /*
         return this.http.post<IProduct>(this.productsUrl, newProduct, { headers })
             .pipe(
                 tap(data => console.log('createProduct: ' + JSON.stringify(data))),
@@ -56,12 +64,18 @@ export class ProductService {
                     this.products.push(data);
                 }),
                 catchError(this.handleError)
+            ); */
+        return this.http.post<IProduct>(this.productsUrl, newProduct, { headers })
+            .pipe(
+                tap(data => console.log('createProduct: ' + JSON.stringify(data))),
+                catchError(this.handleError)
             );
     }
 
     deleteProduct(id: number): Observable<{}> {
         const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         const url = `${this.productsUrl}/${id}`;
+        /*
         return this.http.delete<IProduct>(url, { headers })
             .pipe(
                 tap(data => console.log('deleteProduct: ' + id)),
@@ -72,12 +86,18 @@ export class ProductService {
                     }
                 }),
                 catchError(this.handleError)
+            ); */
+        return this.http.delete<IProduct>(url, { headers })
+            .pipe(
+                tap(data => console.log('deleteProduct: ' + id)),
+                catchError(this.handleError)
             );
     }
 
     updateProduct(product: IProduct): Observable<IProduct> {
         const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         const url = `${this.productsUrl}/${product.id}`;
+        /*
         return this.http.put<IProduct>(url, product, { headers })
             .pipe(
                 tap(() => console.log('updateProduct: ' + product.id)),
@@ -90,6 +110,16 @@ export class ProductService {
                         this.products[foundIndex] = product;
                     }
                 }),
+                // Return the product on an update
+                map(() => product),
+                catchError(this.handleError)
+            ); */
+        return this.http.put<IProduct>(url, product, { headers })
+            .pipe(
+                tap(() => console.log('updateProduct: ' + product.id)),
+                // Update the item in the list
+                // This is required because the selected product that was edited
+                // was a copy of the item from the array.
                 // Return the product on an update
                 map(() => product),
                 catchError(this.handleError)

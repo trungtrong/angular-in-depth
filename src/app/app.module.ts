@@ -16,6 +16,9 @@ import {ACCESS_TOKEN_KEY, AUTH_SCHEME} from './shared/constants';
 import {ProductData} from '@app/modules/basic/components/ngRx-demo-one/products/services/product.data';
 //
 import {AppComponent} from './app.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '@environment';
+import { EffectsModule } from '@ngrx/effects';
 
 // Step 1: set HTTP INTERCEPTOR
 export function accessTokenGetter() {
@@ -49,6 +52,15 @@ export function accessTokenGetter() {
         // https://ngrx.io/guide/store/install
         // ng add @ngrx/store@latest
         StoreModule.forRoot({}),
+        StoreDevtoolsModule.instrument({
+            name: 'Angular In Depth',
+            // maximum allowed actions to be stored in the history tree,
+            // 0 is infinite
+            // default = 25 for performance reasons
+            maxAge: 25,
+            logOnly: environment.production
+        }),
+        EffectsModule.forRoot([]),
     ],
     providers: [
         JwtInterceptor,

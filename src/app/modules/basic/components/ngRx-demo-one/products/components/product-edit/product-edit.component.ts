@@ -11,6 +11,9 @@ import {
     GenericValidator,
     NumberValidators
 } from '@app/utilities';
+import {Store} from '@ngrx/store';
+import {getCurrentProduct, IProductState} from '@app/modules/basic/components/ngRx-demo-one/products/state/product.reducer';
+import {ProductActions} from '@app/modules/basic/components/ngRx-demo-one/products/state/product.actions';
 
 @Component({
     selector: 'app-product-edit',
@@ -22,14 +25,17 @@ export class ProductEditComponent implements OnInit, OnDestroy {
     productForm: FormGroup;
 
     product: IProduct | null;
-    sub: Subscription;
 
     // Use with the generic validation message class
     displayMessage: { [key: string]: string } = {};
     private validationMessages: { [key: string]: { [key: string]: string } };
     private genericValidator: GenericValidator;
 
-    constructor(private fb: FormBuilder, private productService: ProductService) {
+    sub: Subscription = Subscription.EMPTY;
+
+    constructor(private store: Store<IProductState>,
+                private fb: FormBuilder,
+                private productService: ProductService) {
 
         // Defines all of the validation messages for the form.
         // These could instead be retrieved from a file or database.
@@ -62,9 +68,14 @@ export class ProductEditComponent implements OnInit, OnDestroy {
         });
 
         // Watch for changes to the currently selected product
+        /*
         this.sub = this.productService.selectedProductChanges$.subscribe(
-            currentProduct => this.displayProduct(currentProduct)
-        );
+             currentProduct => this.displayProduct(currentProduct)
+        );*/
+        // this.sub.add()
+        this.store.select(getCurrentProduct).subscribe((product) => {
+            this.displayProduct(product);
+        })
 
         // Watch for value changes for validation
         this.productForm.valueChanges.subscribe(
@@ -117,13 +128,13 @@ export class ProductEditComponent implements OnInit, OnDestroy {
         if (product && product.id) {
             if (confirm(`Really delete the product: ${product.productName}?`)) {
                 this.productService.deleteProduct(product.id).subscribe({
-                    next: () => this.productService.changeSelectedProduct(null),
+                    next: () => this.store.dispatch(ProductActions.clearCurrentProduct()),
                     error: err => this.errorMessage = err
                 });
             }
         } else {
             // No need to delete, it was never saved
-            this.productService.changeSelectedProduct(null);
+            this.store.dispatch(ProductActions.setCurrentProduct(null));
         }
     }
 
@@ -137,12 +148,12 @@ export class ProductEditComponent implements OnInit, OnDestroy {
 
                 if (product.id === 0) {
                     this.productService.createProduct(product).subscribe({
-                        next: p => this.productService.changeSelectedProduct(p),
+                        next: (p) => this.store.dispatch(ProductActions.setCurrentProduct({product: p})),
                         error: err => this.errorMessage = err
                     });
                 } else {
                     this.productService.updateProduct(product).subscribe({
-                        next: p => this.productService.changeSelectedProduct(p),
+                        next: p => this.store.dispatch(ProductActions.setCurrentProduct({product: p})),
                         error: err => this.errorMessage = err
                     });
                 }
