@@ -45,9 +45,9 @@ export class SideNavigationMenuComponent implements OnInit {
             icon: ' <i class="fas fa-user-friends"></i>',
         },
         {
-            id: '1_7',
-            routerLink: '/main',
-            text: 'Main Module',
+            id: '1_8',
+            routerLink: '/basic/ngRx-demo-two',
+            text: 'NgRx Demo Two',
             icon: ' <i class="fas fa-user-friends"></i>',
         },
     ];

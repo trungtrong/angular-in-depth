@@ -1,0 +1,7 @@
+<app-card-list *ngIf="appComponentViewModel$ | async as vm"
+               [jokes]="vm.jokes"
+               [loading]="vm.loading"
+               [error]="vm.error"
+               (loadAllRequested)="onLoadAllRequested()"
+               (loadCategoryRequested)="onLoadCategoryRequested($event)">
+</app-card-list>

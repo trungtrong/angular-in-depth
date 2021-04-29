@@ -27,6 +27,7 @@ const initialState: IProductState = {
 /**
  * Selectors
  */
+// Feature State
 const getProductFeatureState = createFeatureSelector<IProductState>('products');
 
 export const getShowProductCode = createSelector(

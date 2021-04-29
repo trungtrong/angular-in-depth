@@ -27,6 +27,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 import {DefaultLayoutComponent, SingleCardLayoutComponent} from './layouts';
 import {ErrorComponent, FooterComponent, HeaderComponent, SideNavigationMenuComponent, UserPanelComponent} from './components';
@@ -56,7 +57,8 @@ const MATERIAL_MODULES = [
     MatInputModule,
     MatTooltipModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatProgressBarModule
 ]
 //
 const BASE_MODULES = [
