@@ -50,6 +50,12 @@ export class SideNavigationMenuComponent implements OnInit {
             text: 'NgRx Demo Two',
             icon: ' <i class="fas fa-user-friends"></i>',
         },
+        {
+            id: '1_9',
+            routerLink: '/basic/ngrx-nest-js-demo-three',
+            text: 'NgRx NestJS Demo Three',
+            icon: ' <i class="fas fa-user-friends"></i>',
+        },
     ];
 
     constructor(private router: Router) {

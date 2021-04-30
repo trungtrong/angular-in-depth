@@ -1,0 +1,23 @@
+.title-string {
+    font-size: 0.8em
+}
+
+.nav-item {
+    cursor: pointer;
+    border: white 1px solid;
+    margin: 3px;
+    border-radius: 5px;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    &:active {
+        background: rgba(255, 255, 255, 0.15);
+    }
+}
+
+.nav-link {
+    cursor: pointer;
+    padding-left: 10px;
+}
