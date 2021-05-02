@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "analyze": "webpack-bundle-analyzer ./dist/angular-authentication/stats.json",
-    "analyze-build": "node --max_old_space_size=8192 ./node_modules/@angular/cli/bin/ng build --prod --stats-json && webpack-bundle-analyzer ./dist/angular-authentication/stats.json",
+    "analyze-build": "node --max_old_space_size=8192 ./node_modules/@angular/cli/bin/ng build --prod --stats-json && webpack-bundle-analyzer ./dist/angular-authentication/stats.json --port 8889",
     "generate-icons": "svg-to-ts"
   },
   "private": true,
@@ -29,6 +29,9 @@
     "@ngrx/entity": "^10.1.2",
     "@ngrx/store": "^10.1.2",
     "@ngrx/store-devtools": "^11.1.0",
+    "@ngxs/devtools-plugin": "^3.6.2-dev.master-eaa5d86",
+    "@ngxs/logger-plugin": "^3.6.2-dev.master-eaa5d86",
+    "@ngxs/store": "^3.6.2-dev.master-eaa5d86",
     "bootstrap": "^4.4.1",
     "devextreme": "latest",
     "devextreme-angular": "latest",

@@ -1,6 +1,7 @@
 import {createEntityAdapter, EntityState} from '@ngrx/entity';
-import {Contact} from '@app/modules/basic/components/ngrx-nest-js-demo-three/models/contact.model';
 import {createReducer, on} from '@ngrx/store';
+//
+import {Contact} from '@app/modules/basic/components/ngrx-nest-js-demo-three/models/contact.model';
 import {
     createSuccess,
     loadAllSuccess,
@@ -58,4 +59,6 @@ export const reducer = createReducer<IContactState>(
     )
 )
 
-export const getContactById = (id: number) => (state: IContactState) => state.entities[id];
+export const getContactById = (id: number) => (state: IContactState) => {
+    return state.entities[id];
+};

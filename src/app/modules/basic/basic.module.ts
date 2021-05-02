@@ -69,6 +69,10 @@ const PROVIDERS = [
                     path: 'ngRx-demo-two',
                     loadChildren: () => import('./components/ngrx-demo-two/ngrx-demo-two.module').then(m => m.NgrxDemoTwoModule),
                 },
+                {
+                    path: 'ngrx-nest-js-demo-three',
+                    loadChildren: () => import('./components/ngrx-nest-js-demo-three/ngrx-nest-js-demo-three.module').then(m => m.NgrxNestJsDemoThreeModule),
+                },
             ]
         },
 

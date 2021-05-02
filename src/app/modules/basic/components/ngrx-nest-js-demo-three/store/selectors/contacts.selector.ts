@@ -7,6 +7,7 @@ export interface IContactsState {
 }
 
 // Provide reducers with AoT-compilation compliance (tuan thu rule)
+// https://netbasal.com/implementing-a-meta-reducer-in-ngrx-store-4379d7e1020a
 export function reducers(state: IContactsState | undefined, action: Action) {
     return combineReducers({
         contacts: ContactsReducer.reducer

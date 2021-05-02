@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
-import {Observable} from 'rxjs';
+//
+import * as AppSelector from '@app/modules/basic/components/ngrx-nest-js-demo-three/store/selectors/ui.selector';
 
 @Component({
     selector: 'app-ngrx-nestjs-demo-three',
@@ -9,7 +10,7 @@ import {Observable} from 'rxjs';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NgrxNestJsDemoThreeComponent implements OnInit {
-    currentPageTitle$: Observable<any>;
+    currentPageTitle$ = this.store.select(AppSelector.getCurrentTitle);
 
     constructor(private store: Store<any>) {}
 

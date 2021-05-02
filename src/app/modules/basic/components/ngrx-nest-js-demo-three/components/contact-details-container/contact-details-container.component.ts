@@ -6,7 +6,7 @@ import {Contact} from '@app/modules/basic/components/ngrx-nest-js-demo-three/mod
 @Component({
     selector: 'app-contact-details-container',
     templateUrl: './contact-details-container.component.html',
-    styleUrls: ['./contact-details.component.scss'],
+    styleUrls: ['./contact-details-container.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContactDetailsContainerComponent implements OnInit, OnDestroy {

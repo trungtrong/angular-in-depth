@@ -32,7 +32,7 @@ export const create = createAction(
 
 export const update = createAction(
     ContactsActionTypes.UPDATE,
-    props<{ contact: Partial<Contact> }>()
+    props<{ contact: Contact }>()
 );
 
 export const remove = createAction(
@@ -58,7 +58,7 @@ export const createSuccess = createAction(
 
 export const updateSuccess = createAction(
     ContactsActionTypes.UPDATE_SUCCESS,
-    props<{ contact: Partial<Contact> }>()
+    props<{ contact: Contact }>()
 );
 
 

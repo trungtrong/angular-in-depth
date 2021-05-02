@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {Router, RouterModule, Routes} from '@angular/router';
-
-
+import {StoreModule} from '@ngrx/store';
+//
 import {ThemeModule} from '@app/theme';
 import {SharedModule} from '@app/shared/shared.module';
 //
@@ -16,6 +16,13 @@ import {
     NgrxNestJsDemoThreeComponent
 } from '@app/modules/basic/components/ngrx-nest-js-demo-three';
 //
+import {ContactsService} from '@app/modules/basic/components/ngrx-nest-js-demo-three/services/contacts.service';
+import {ContactsStoreFacade} from '@app/modules/basic/components/ngrx-nest-js-demo-three/store/contacts.store-facade';
+import * as ContactsSelector from '@app/modules/basic/components/ngrx-nest-js-demo-three/store/selectors/contacts.selector';
+import {EffectsModule} from '@ngrx/effects';
+import {ContactsEffects} from '@app/modules/basic/components/ngrx-nest-js-demo-three/store/effects/contacts.effect';
+
+//
 const COMPONENTS = [
     NgrxNestJsDemoThreeComponent,
     ContactDetailsComponent,
@@ -28,11 +35,19 @@ const COMPONENTS = [
     ContactsToolbarComponent
 ];
 
-const PROVIDERS = [];
+const PROVIDERS = [
+    ContactsService,
+    ContactsStoreFacade
+];
 //
 const routes: Routes = [
     {
         path: '',
+        redirectTo: 'contacts',
+        pathMatch: 'full'
+    },
+    {
+        path: 'contacts',
         component: NgrxNestJsDemoThreeComponent,
         children: [
             {
@@ -72,6 +87,8 @@ const routes: Routes = [
         //
         RouterModule.forChild(routes),
         // Config Store for FeatureModule
+        StoreModule.forFeature(ContactsSelector.ContactsFeatureKey, ContactsSelector.reducers),
+        EffectsModule.forFeature([ContactsEffects])
     ],
     declarations: [
         ...COMPONENTS

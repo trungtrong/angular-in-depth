@@ -2,6 +2,14 @@
     font-size: 0.8em
 }
 
+.navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 240px;
+    z-index: 1030;
+}
+
 .nav-item {
     cursor: pointer;
     border: white 1px solid;

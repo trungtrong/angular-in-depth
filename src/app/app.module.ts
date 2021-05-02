@@ -19,6 +19,8 @@ import {AppComponent} from './app.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '@environment';
 import { EffectsModule } from '@ngrx/effects';
+// NgRx Example 3
+import {ROOT_REDUCERS} from '@app/modules/basic/components/ngrx-nest-js-demo-three/store/selectors/ui.selector';
 
 // Step 1: set HTTP INTERCEPTOR
 export function accessTokenGetter() {
@@ -51,7 +53,11 @@ export function accessTokenGetter() {
         SharedModule.forRoot(),
         // https://ngrx.io/guide/store/install
         // ng add @ngrx/store@latest
-        StoreModule.forRoot({}),
+        // Example 1,2
+        // StoreModule.forRoot({}),
+        //
+        // Example 3: Initialize the central store with app's main reducer
+        StoreModule.forRoot(ROOT_REDUCERS),
         StoreDevtoolsModule.instrument({
             name: 'Angular In Depth',
             // maximum allowed actions to be stored in the history tree,
@@ -60,6 +66,7 @@ export function accessTokenGetter() {
             maxAge: 25,
             logOnly: environment.production
         }),
+        // start monitoring app's side effects
         EffectsModule.forRoot([]),
     ],
     providers: [
