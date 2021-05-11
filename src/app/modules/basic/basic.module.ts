@@ -61,17 +61,25 @@ const PROVIDERS = [
                     path: 'observables',
                     loadChildren: () => import('./components/observable-concept/observable-concept.module').then(m => m.ObservableConceptModule),
                 },
+                // {
+                //     path: 'ngRx-demo-one',
+                //     loadChildren: () => import('./components/ngRx-demo-one/ngRx-demo-one.module').then(m => m.NgRxDemoOneModule),
+                // },
+                // {
+                //     path: 'ngRx-demo-two',
+                //     loadChildren: () => import('./components/ngrx-demo-two/ngrx-demo-two.module').then(m => m.NgrxDemoTwoModule),
+                // },
+                // {
+                //     path: 'ngrx-nest-js-demo-three',
+                //     loadChildren: () => import('./components/ngrx-nest-js-demo-three/ngrx-nest-js-demo-three.module').then(m => m.NgrxNestJsDemoThreeModule),
+                // },
+                // {
+                //     path: 'ngxs-salad-example-one',
+                //     loadChildren: () => import('./components/ngxs-salad-example-one/ngxs-salad-example-one.module').then(m => m.NgxsSaladExampleOneModule),
+                // },
                 {
-                    path: 'ngRx-demo-one',
-                    loadChildren: () => import('./components/ngRx-demo-one/ngRx-demo-one.module').then(m => m.NgRxDemoOneModule),
-                },
-                {
-                    path: 'ngRx-demo-two',
-                    loadChildren: () => import('./components/ngrx-demo-two/ngrx-demo-two.module').then(m => m.NgrxDemoTwoModule),
-                },
-                {
-                    path: 'ngrx-nest-js-demo-three',
-                    loadChildren: () => import('./components/ngrx-nest-js-demo-three/ngrx-nest-js-demo-three.module').then(m => m.NgrxNestJsDemoThreeModule),
+                    path: 'ngxs-authentication',
+                    loadChildren: () => import('./components/ngxs-authentication/ngxs-authentication.module').then(m => m.NgxsAuthenticationModule),
                 },
             ]
         },

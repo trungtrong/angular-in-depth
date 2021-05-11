@@ -56,6 +56,18 @@ export class SideNavigationMenuComponent implements OnInit {
             text: 'NgRx NestJS Demo Three',
             icon: ' <i class="fas fa-user-friends"></i>',
         },
+        {
+            id: '1_10',
+            routerLink: '/basic/ngxs-salad-example-one',
+            text: 'NgXS Salad Example One',
+            icon: ' <i class="fas fa-user-friends"></i>',
+        },
+        {
+            id: '1_11',
+            routerLink: '/basic/ngxs-authentication',
+            text: 'NgXS Authentication',
+            icon: ' <i class="fas fa-user-friends"></i>',
+        },
     ];
 
     constructor(private router: Router) {

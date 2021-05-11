@@ -21,6 +21,10 @@ import { environment } from '@environment';
 import { EffectsModule } from '@ngrx/effects';
 // NgRx Example 3
 import {ROOT_REDUCERS} from '@app/modules/basic/components/ngrx-nest-js-demo-three/store/selectors/ui.selector';
+import {NgxsModule} from '@ngxs/store';
+import {SaladAppState} from '@app/modules/basic/components/ngxs-salad-example-one/state/salad-app.state';
+import {NgxsReduxDevtoolsPluginModule} from '@ngxs/devtools-plugin';
+import {NgxsLoggerPluginModule} from '@ngxs/logger-plugin';
 
 // Step 1: set HTTP INTERCEPTOR
 export function accessTokenGetter() {
@@ -57,22 +61,33 @@ export function accessTokenGetter() {
         // StoreModule.forRoot({}),
         //
         // Example 3: Initialize the central store with app's main reducer
-        StoreModule.forRoot(ROOT_REDUCERS),
-        StoreDevtoolsModule.instrument({
+        // StoreModule.forRoot(ROOT_REDUCERS),
+        /* StoreDevtoolsModule.instrument({
             name: 'Angular In Depth',
             // maximum allowed actions to be stored in the history tree,
             // 0 is infinite
             // default = 25 for performance reasons
             maxAge: 25,
             logOnly: environment.production
-        }),
+        }),*/
         // start monitoring app's side effects
-        EffectsModule.forRoot([]),
+        // EffectsModule.forRoot([]),
+        NgxsModule.forRoot([], {
+            developmentMode: !environment.production,
+            selectorOptions: { injectContainerState: false }
+        }),
+        NgxsReduxDevtoolsPluginModule.forRoot({
+            disabled: environment.production
+        }),
+        NgxsLoggerPluginModule.forRoot({
+            disabled: environment.production
+        })
     ],
     providers: [
         JwtInterceptor,
         {
             /**
+             // tslint:disable-next-line:max-line-length
              * https://medium.com/@swapnil.s.pakolu/angular-interceptors-multiple-interceptors-and-6-code-examples-of-interceptors-59e745b684ec
              */
             provide: HTTP_INTERCEPTORS,

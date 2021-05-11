@@ -6,6 +6,7 @@ import {SharedModule} from '@app/shared/shared.module';
 import {NgRxDemoOneComponent} from '@app/modules/basic/components/ngRx-demo-one/ngRx-demo-one.component';
 import {MenuComponent} from '@app/modules/basic/components/ngRx-demo-one/menu/menu.component';
 import {WelcomeComponent} from '@app/modules/basic/components/ngRx-demo-one/welcome/welcome.component';
+import {ProductModule} from '@app/modules/basic/components/ngRx-demo-one/products/products.module';
 //
 
 const COMPONENTS = [
@@ -27,14 +28,14 @@ const PROVIDERS = [
                 path: '',
                 component: NgRxDemoOneComponent,
                 children: [
-                    {
-                        path: 'welcome',
-                        component: WelcomeComponent,
-                    },
-                    {
-                        path: 'products',
-                        loadChildren: () => import('./products/products.module').then(m => m.ProductModule)
-                    }
+                    // {
+                    //     path: 'welcome',
+                    //     component: WelcomeComponent,
+                    // },
+                    // {
+                    //     path: 'products',
+                    //     loadChildren: () => import('./products/products.module').then(m => m.ProductModule)
+                    // }
                 ]
             },
         ]),
