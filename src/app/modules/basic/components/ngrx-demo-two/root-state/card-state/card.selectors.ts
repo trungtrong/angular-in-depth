@@ -2,7 +2,7 @@ import {createFeatureSelector, createSelector} from '@ngrx/store';
 import {IJokeState, JokeFeatureKey} from '@app/modules/basic/components/ngrx-demo-two/root-state/card-state/card.reducer';
 
 
-// Lookup the "Joke" feature state managed by NgRx
+// Lookup the "Joke" feature store managed by NgRx
 const getJokeState = createFeatureSelector<IJokeState>(JokeFeatureKey);
 //
 export const selectJokeList = createSelector(

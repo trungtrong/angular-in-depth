@@ -1,22 +1,20 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { QuicklinkModule } from 'ngx-quicklink';
+import {NgModule, ModuleWithProviders} from '@angular/core';
+import {QuicklinkModule} from 'ngx-quicklink';
 //
-import { ThemeModule } from './../theme';
-import { AuthenticationService, LoggedUserService } from './../services/auth';
-import { AuthGuard } from './auth.guard';
-import { ApiService, AlertService } from './../services/shared';
+import {ThemeModule} from './../theme';
+import {AuthenticationService, LoggedUserService} from './../services/auth';
+import {AuthGuard} from './auth.guard';
+import {ApiService, AlertService} from './../services/shared';
 
 const PROVIDERS = [
-  AuthenticationService,
-  ApiService,
-  LoggedUserService,
-  AuthGuard,
-  AlertService
+    AuthenticationService,
+    ApiService,
+    LoggedUserService,
+    AuthGuard,
+    AlertService
 ];
 
-const COMPONENTS = [
-
-];
+const COMPONENTS = [];
 
 @NgModule({
     imports: [
@@ -43,10 +41,10 @@ const COMPONENTS = [
  *  shared pipes and directives without providing the service again
  */
 export class SharedModule {
-  static forRoot(): ModuleWithProviders<SharedModule> {
-    return {
-      ngModule: SharedModule,
-      providers: [...PROVIDERS]
-    };
-  }
+    static forRoot(): ModuleWithProviders<SharedModule> {
+        return {
+            ngModule: SharedModule,
+            providers: [...PROVIDERS]
+        };
+    }
 }

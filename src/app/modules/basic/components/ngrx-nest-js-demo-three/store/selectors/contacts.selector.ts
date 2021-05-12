@@ -15,7 +15,7 @@ export function reducers(state: IContactsState | undefined, action: Action) {
 }
 
 /**
- * The createFeatureSelector function selects a piece of state from the ROOT of STATE object
+ * The createFeatureSelector function selects a piece of store from the ROOT of STATE object
  * This is used for selecting feature states that are loaded eagerly or lazily
  */
 export const ContactsFeatureKey = 'contacts';

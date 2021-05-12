@@ -1,16 +1,22 @@
 import {NgModule} from '@angular/core';
-import {Router, RouterModule, Routes} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import {NgxsModule} from '@ngxs/store';
 //
 import {ThemeModule} from '@app/theme';
 import {SharedModule} from '@app/shared/shared.module';
 //
 import {
-    NgxsAuthenticationComponent
+    LogInComponent,
+    NgxsAuthenticationComponent,
+    SignUpComponent
 } from '@app/modules/basic/components/ngxs-authentication';
+//
+import {AuthState} from '@app/modules/basic/components/ngxs-authentication/store/auth.state';
 
 const COMPONENTS = [
-    NgxsAuthenticationComponent
+    NgxsAuthenticationComponent,
+    LogInComponent,
+    SignUpComponent
 ];
 
 const PROVIDERS = [
@@ -20,6 +26,20 @@ const routes: Routes = [
     {
         path: '',
         component: NgxsAuthenticationComponent,
+        children: [
+            {
+                path: 'log-in',
+                component: LogInComponent
+            },
+            {
+                path: 'sign-up',
+                component: SignUpComponent
+            },
+            {
+                path: '**',
+                redirectTo: '/'
+            },
+        ]
     }
 ];
 
@@ -30,6 +50,7 @@ const routes: Routes = [
         //
         RouterModule.forChild(routes),
         NgxsModule.forFeature([
+            AuthState
         ]),
     ],
     declarations: [

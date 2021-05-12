@@ -100,12 +100,12 @@ export const productReducer = createReducer<IProductState>(
  *
  export const productReducer = createReducer<IProductState>(
  initialState,
- on(createAction('[Product] Toggle Product Code', (state: IProductState): IProductState => {
+ on(createAction('[Product] Toggle Product Code', (store: IProductState): IProductState => {
         // tslint:disable-next-line:jsdoc-format
         console.log('[Product] Toggle Product Code');
         return {
-            ...state,
-            showProductCode: !state.showProductCode
+            ...store,
+            showProductCode: !store.showProductCode
         }
     }))
  )
