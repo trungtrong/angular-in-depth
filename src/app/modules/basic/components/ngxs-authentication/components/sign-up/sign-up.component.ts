@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserModel} from '@app/modules/basic/components/ngxs-authentication/models/user.model';
+import {Store} from '@ngxs/store';
+import {SignUp} from '@app/modules/basic/components/ngxs-authentication/store/auth.actions';
 //
 
 @Component({
@@ -9,14 +11,18 @@ import {UserModel} from '@app/modules/basic/components/ngxs-authentication/model
 })
 export class SignUpComponent implements OnInit {
     user: UserModel = new UserModel();
+    errorMessage: string;
 
-    constructor() {
+    constructor(private $store: Store) {
     }
 
     ngOnInit() {
     }
 
     onSubmit(): void {
-        console.log(this.user);
+        this.$store.dispatch(new SignUp(new UserModel({
+            email: this.user.email,
+            password: this.user.password
+        })))
     }
 }

@@ -12,6 +12,7 @@ import {
 } from '@app/modules/basic/components/ngxs-authentication';
 //
 import {AuthState} from '@app/modules/basic/components/ngxs-authentication/store/auth.state';
+import {AuthService} from '@app/modules/basic/components/ngxs-authentication/services/auth.service';
 
 const COMPONENTS = [
     NgxsAuthenticationComponent,
@@ -20,6 +21,7 @@ const COMPONENTS = [
 ];
 
 const PROVIDERS = [
+    AuthService
 ];
 //
 const routes: Routes = [
@@ -34,11 +36,7 @@ const routes: Routes = [
             {
                 path: 'sign-up',
                 component: SignUpComponent
-            },
-            {
-                path: '**',
-                redirectTo: '/'
-            },
+            }
         ]
     }
 ];

@@ -3,7 +3,13 @@
         <h1>Log in</h1>
         <hr><br>
 
-        <form (ngSubmit)="onSubmit()" ngNativeValidate>
+        <div *ngIf="errorMessage">
+            <div class="alert alert-danger" role="alert">
+                {{errorMessage}}
+            </div>
+        </div>
+
+        <form (ngSubmit)="onSubmit()">
             <div class="form-group">
                 <label for="email">Email</label>
                 <input

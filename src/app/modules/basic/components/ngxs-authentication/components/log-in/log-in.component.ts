@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {UserModel} from '@app/modules/basic/components/ngxs-authentication/models/user.model';
+import {Store} from '@ngxs/store';
 //
+import {UserModel} from '@app/modules/basic/components/ngxs-authentication/models/user.model';
+import {Login} from '@app/modules/basic/components/ngxs-authentication/store/auth.actions';
 
 @Component({
     selector: 'app-ngxs-authentication-log-in',
@@ -8,15 +10,21 @@ import {UserModel} from '@app/modules/basic/components/ngxs-authentication/model
     styleUrls: ['./log-in.component.scss']
 })
 export class LogInComponent implements OnInit {
-    user: UserModel = new UserModel();
 
-    constructor() {
+
+    user: UserModel = new UserModel();
+    errorMessage: string;
+
+    constructor(private $store: Store) {
     }
 
     ngOnInit() {
     }
 
     onSubmit(): void {
-        console.log(this.user);
+        this.$store.dispatch(new Login(new UserModel({
+            email: this.user.email,
+            password: this.user.password
+        })))
     }
 }
