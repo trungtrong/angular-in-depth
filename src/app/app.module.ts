@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {ErrorHandler, NgModule} from '@angular/core';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -25,6 +25,8 @@ import {NgxsModule} from '@ngxs/store';
 import {SaladAppState} from '@app/modules/basic/components/ngxs-salad-example-one/state/salad-app.state';
 import {NgxsReduxDevtoolsPluginModule} from '@ngxs/devtools-plugin';
 import {NgxsLoggerPluginModule} from '@ngxs/logger-plugin';
+import {HttpErrorInterceptor} from '@app/services/shared/error.interceptor';
+import {ClientErrorHandler} from '@app/services/shared/client-error.handler';
 
 // Step 1: set HTTP INTERCEPTOR
 export function accessTokenGetter() {
@@ -93,6 +95,15 @@ export function accessTokenGetter() {
             provide: HTTP_INTERCEPTORS,
             useClass: RefreshTokenInterceptor,
             multi: true // b/c 2 Interceptor use HTTP_Interceptor (refresh and jwtInterceptor (plug-in))
+        },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: HttpErrorInterceptor,
+            multi: true,
+        },
+        {
+            provide: ErrorHandler,
+            useClass: ClientErrorHandler
         }
     ],
     bootstrap: [AppComponent]

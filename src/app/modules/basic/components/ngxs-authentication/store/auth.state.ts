@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {catchError, tap} from 'rxjs/operators';
 import {Action, State, StateContext} from '@ngxs/store';
+import {Observable, of} from 'rxjs';
 //
 import {UserModel} from '@app/modules/basic/components/ngxs-authentication/models/user.model';
 import {
@@ -13,8 +14,6 @@ import {
 import {AuthAppFeatureKeys} from '@app/modules/basic/components/ngxs-authentication/app-store/app-feature-key.enum';
 import {AuthService} from '@app/modules/basic/components/ngxs-authentication/services/auth.service';
 import {Router} from '@angular/router';
-import {Observable, of} from 'rxjs';
-import {A} from '@angular/cdk/keycodes';
 
 export interface IAuthState {
     isAuthenticated: boolean;
@@ -38,7 +37,17 @@ export class AuthState {
     constructor(private router: Router,
                 private authService: AuthService) {
     }
+    /**
+     * Selectors
+     */
+    // @Select()
+    // public static getErrorMessage(state: IAuthState): string {
+    //     return state.errorMessage;
+    // }
 
+    /**
+     * Actions
+     */
     // If you have an async action, you may want to cancel a previous Observable if the action has been dispatched again
     @Action(Login, {cancelUncompleted: true})
     login(context: StateContext<IAuthState>, {payload}: Login) {
@@ -83,7 +92,7 @@ export class AuthState {
     }
 
     // Sign Up
-    @Action(SignUp)
+    @Action(SignUp, {cancelUncompleted: true})
     signUp(context: StateContext<IAuthState>, {payload}: SignUp) {
         return this.authService.signUp(payload.email, payload.password).pipe(
             // call SignUp Success
@@ -112,6 +121,9 @@ export class AuthState {
 
     @Action(Logout)
     logout(context: StateContext<IAuthState>) {
+        context.setState({
+            ...INIT_STATE,
+        });
         localStorage.removeItem('token');
         // navigateToLogin()
         this.router.navigateByUrl('basic/ngxs-authentication/log-in').then();

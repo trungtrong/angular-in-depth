@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {UserModel} from '@app/modules/basic/components/ngxs-authentication/models/user.model';
-import {Store} from '@ngxs/store';
+import {Select, Store} from '@ngxs/store';
 import {SignUp} from '@app/modules/basic/components/ngxs-authentication/store/auth.actions';
+import {AuthSelectors} from '@app/modules/basic/components/ngxs-authentication/store/auth.selectors';
+import {Observable} from 'rxjs';
 //
 
 @Component({
@@ -10,8 +12,9 @@ import {SignUp} from '@app/modules/basic/components/ngxs-authentication/store/au
     styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
+    @Select(AuthSelectors.getErrorMessage) $errorMessage: Observable<string>;
+
     user: UserModel = new UserModel();
-    errorMessage: string;
 
     constructor(private $store: Store) {
     }

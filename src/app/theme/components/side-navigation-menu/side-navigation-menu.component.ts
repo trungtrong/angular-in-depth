@@ -68,6 +68,12 @@ export class SideNavigationMenuComponent implements OnInit {
             text: 'NgXS Authentication',
             icon: ' <i class="fas fa-user-friends"></i>',
         },
+        {
+            id: '1_12',
+            routerLink: '',
+            text: 'Error Handler',
+            icon: ' <i class="fas fa-user-friends"></i>',
+        },
     ];
 
     constructor(private router: Router) {

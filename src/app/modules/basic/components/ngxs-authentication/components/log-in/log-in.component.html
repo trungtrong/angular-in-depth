@@ -3,11 +3,13 @@
         <h1>Log in</h1>
         <hr><br>
 
-        <div *ngIf="errorMessage">
+        <div *ngIf="$errorMessage | async">
             <div class="alert alert-danger" role="alert">
-                {{errorMessage}}
+                {{$errorMessage | async}}
             </div>
         </div>
+
+        <div>{{ $userEmail | async}}</div>
 
         <form (ngSubmit)="onSubmit()">
             <div class="form-group">
