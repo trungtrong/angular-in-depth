@@ -27,6 +27,7 @@ import {NgxsReduxDevtoolsPluginModule} from '@ngxs/devtools-plugin';
 import {NgxsLoggerPluginModule} from '@ngxs/logger-plugin';
 import {HttpErrorInterceptor} from '@app/services/shared/error.interceptor';
 import {ClientErrorHandler} from '@app/services/shared/client-error.handler';
+import {CanDeactiveGuard} from '@app/services/guards/can-deactive.guard';
 
 // Step 1: set HTTP INTERCEPTOR
 export function accessTokenGetter() {
@@ -86,6 +87,7 @@ export function accessTokenGetter() {
         })
     ],
     providers: [
+        CanDeactiveGuard,
         JwtInterceptor,
         {
             /**

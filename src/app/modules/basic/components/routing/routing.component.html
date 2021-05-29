@@ -15,6 +15,12 @@
 <br>
 
 <h3>User:  Router Guards and resolver</h3>
-<a [routerLink]="['users']" [queryParams]="{'login': '1'}">Login User</a>
-
+<div class="d-flex flex-nowrap">
+    <a [routerLink]="['users']" [queryParams]="{'login': '1'}" class="mr-3">Login User</a>
+    <a [routerLink]="['article']" class="mr-3">Article</a>
+    <a [routerLink]="['can-deactive']" class="mr-3">Can Deactive Guard</a>
+</div>
+<br>
+<hr>
+<br>
 <router-outlet></router-outlet>

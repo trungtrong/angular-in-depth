@@ -8,7 +8,7 @@ import {BasicRoutingComponent} from './routing.component';
 import {ChildOneRoutingIdComponent} from './child-one-routing-id/child-one-routing-id.component';
 import {
     ArticleDetailComponent,
-    ArticleListComponent
+    ArticleListComponent, CanDeactiveWithoutGuardComponent, FormEditComponent
 } from '@app/modules/basic/components/routing';
 //
 import {
@@ -18,6 +18,7 @@ import {
     AuthService, MockUserDataService
 } from '@app/modules/basic/components/routing/user';
 import {PipeExampleModule} from '@app/modules/basic/components/pipe-example/pure-impure-pipes.module';
+import {CanDeactiveGuard} from '@app/services/guards/can-deactive.guard';
 //
 const COMPONENTS = [
     BasicRoutingComponent,
@@ -25,7 +26,10 @@ const COMPONENTS = [
     ArticleDetailComponent,
     ArticleListComponent,
     //
-    UsersComponent
+    UsersComponent,
+    //
+    CanDeactiveWithoutGuardComponent,
+    FormEditComponent
 ];
 
 const PROVIDERS = [
@@ -62,6 +66,11 @@ const PROVIDERS = [
                         resolve: {
                             users: UserResolver
                         }
+                    },
+                    {
+                        path: 'can-deactive',
+                        component: CanDeactiveWithoutGuardComponent,
+                        canDeactivate: [CanDeactiveGuard]
                     }
                 ]
             },
