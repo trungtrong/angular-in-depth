@@ -33,6 +33,7 @@ import {DefaultLayoutComponent, SingleCardLayoutComponent} from './layouts';
 import {ErrorComponent, FooterComponent, HeaderComponent, SideNavigationMenuComponent, UserPanelComponent} from './components';
 import {AutoFocusInputDirective} from './directives';
 import {SvgIconComponent} from './components/svg-icons/svg-icons.component';
+import {QuicklinkModule} from 'ngx-quicklink';
 
 //
 const DEVEXTREME_MODULES = [
@@ -65,7 +66,8 @@ const BASE_MODULES = [
     CommonModule,
     RouterModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    QuicklinkModule
 ];
 
 // Components for this module only

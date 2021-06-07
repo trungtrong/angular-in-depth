@@ -42,7 +42,8 @@ const config: ExtraOptions = {
     // enableTracing: true, // use to tracking/debugging router cycle, console.log on inspect
     // onSameUrlNavigation: 'reload',
     // anchorScrolling: 'enabled',
-    preloadingStrategy: CustomPreloadStrategyService
+    // preloadingStrategy: CustomPreloadStrategyService
+    preloadingStrategy: QuicklinkStrategy
 };
 
 @NgModule({

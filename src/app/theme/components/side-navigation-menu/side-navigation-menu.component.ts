@@ -9,6 +9,12 @@ import {Router} from '@angular/router';
 export class SideNavigationMenuComponent implements OnInit {
     pages = [
         {
+            id: '1_0',
+            routerLink: '/main',
+            text: 'Main Module',
+            icon: ' <i class="fas fa-user-friends"></i>',
+        },
+        {
             id: '1_1',
             routerLink: '/basic/change-detector',
             text: 'Change Detection',
