@@ -5,8 +5,10 @@ import {ThemeModule} from '@app/theme';
 import {SharedModule} from '@app/shared/shared.module';
 import { PureImpurePipesComponent } from './pure-impure-pipes.component';
 //
-
-import {CalculatePipe} from './pipes/calculate.pipe';
+import {
+    CalculatePipe,
+    FunctionPipe
+} from '@app/modules/basic/components/pipe-example/pipes';
 
 const COMPONENTS = [
     PureImpurePipesComponent
@@ -16,7 +18,8 @@ const PROVIDERS = [
 ];
 
 const PIPES = [
-    CalculatePipe
+    CalculatePipe,
+    FunctionPipe
 ]
 
 @NgModule({

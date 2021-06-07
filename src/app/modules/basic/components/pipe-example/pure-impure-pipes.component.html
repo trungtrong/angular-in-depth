@@ -5,4 +5,20 @@
     <div>Length: {{ length | calculate }}</div>
 
     <hr>
+    <br><br>
+    <h3>Ex2: Function Pipe</h3>
+    <input [(ngModel)]="inputValue"/>
+    <button (click)="name = inputValue">Set Value</button>
+
+    <div>Result: {{name | function: compileHandler : this}}</div>
+    <div>Result: {{name | function: compileHandler}}</div>
+
+
+    <dx-text-box [(value)]="inputValue">
+        <dx-validator>
+            <dxi-validation-rule [type]="'async'"
+                                 [validationCallback]="asyncValidationCallback">
+            </dxi-validation-rule>
+        </dx-validator>
+    </dx-text-box>
 </div>
