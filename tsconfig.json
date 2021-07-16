@@ -31,6 +31,9 @@
             "@app/utilities": [
                 "app/utilities"
             ],
+            "@app/core/*": [
+                "app/core/*"
+            ],
             "@app/theme": [
                 "app/theme"
             ],

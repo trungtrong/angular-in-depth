@@ -76,6 +76,12 @@ export class SideNavigationMenuComponent implements OnInit {
         },
         {
             id: '1_12',
+            routerLink: '/basic/dependency-injection',
+            text: 'Dependency Injection',
+            icon: ' <i class="fas fa-user-friends"></i>',
+        },
+        {
+            id: '1_13',
             routerLink: '',
             text: 'Error Handler',
             icon: ' <i class="fas fa-user-friends"></i>',

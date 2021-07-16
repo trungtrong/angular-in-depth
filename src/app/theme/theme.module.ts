@@ -1,4 +1,4 @@
-import {ModuleWithProviders, NgModule} from '@angular/core';
+import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -32,8 +32,6 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {DefaultLayoutComponent, SingleCardLayoutComponent} from './layouts';
 import {ErrorComponent, FooterComponent, HeaderComponent, SideNavigationMenuComponent, UserPanelComponent} from './components';
 import {AutoFocusInputDirective} from './directives';
-import {SvgIconComponent} from './components/svg-icons/svg-icons.component';
-import {QuicklinkModule} from 'ngx-quicklink';
 
 //
 const DEVEXTREME_MODULES = [
@@ -67,7 +65,6 @@ const BASE_MODULES = [
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    QuicklinkModule
 ];
 
 // Components for this module only
@@ -81,7 +78,6 @@ const COMPONENTS = [
     //
     SingleCardLayoutComponent,
     DefaultLayoutComponent,
-    SvgIconComponent
 ];
 
 //

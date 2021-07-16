@@ -1,7 +1,7 @@
 import {createReducer, on, createAction, createFeatureSelector, createSelector} from '@ngrx/store';
 //
 import {IProduct} from '@app/modules/basic/components/ngRx-demo-one/products/models/product.model';
-import {IAppState} from '@app/state/app.state';
+import {IAppState} from '@app/core/state/app.state';
 import {ProductActions} from '@app/modules/basic/components/ngRx-demo-one/products/state/product.actions';
 
 // to make properties consistent

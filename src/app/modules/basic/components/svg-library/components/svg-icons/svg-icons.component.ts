@@ -1,6 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import {Component, ElementRef,  Inject,  Input,  OnInit, Optional, ChangeDetectionStrategy} from '@angular/core';
-import { SvgIconsRegistry } from 'app/theme/services/svg-icons.service';
+import { SvgIconsRegistry } from '@app/modules/basic/components/svg-library/services/svg-icons.service';
 
 @Component({
     selector: 'app-svg-icons',

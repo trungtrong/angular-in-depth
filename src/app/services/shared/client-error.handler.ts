@@ -6,7 +6,7 @@ export class ClientErrorHandler implements ErrorHandler {
     // https://indepth.dev/posts/1074/expecting-the-unexpected-best-practices-for-error-handling-in-angular
     /**
      - Since error handling is essential, it gets loaded first
-     - b/c of this, we can't use Dependency Injection in the constructor for the services
+     // - b/c of this, we can't use Dependency Injection in the constructor for the services
      - We have to inject then manually with Injector
      */
     constructor(private injector: Injector) {
